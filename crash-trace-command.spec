@@ -1,12 +1,12 @@
 Name:          crash-trace-command
 Version:       2.0
-Release:       15
+Release:       16
 Summary:       Crash utility's trace extension module
 License:       GPLv2
 Source:        crash-trace-command-%{version}.tar.gz
 URL:           http://people.redhat.com/anderson/extensions/crash-trace-command-%{version}.tar.gz
 Buildroot:     %{_tmppath}/crash-trace-command-root
-BuildRequires: zlib-devel lzo-devel snappy-devel crash-devel >= 7.2.0-2
+BuildRequires: zlib-devel lzo-devel snappy-devel crash-devel >= 7.2.0-2 gcc
 Requires:      trace-cmd crash >= 7.2.0-2
 
 Patch0001:     trace_compiler_warnings.patch
@@ -42,5 +42,8 @@ cp %{_builddir}/crash-trace-command-%{version}/trace.so %{buildroot}%{_libdir}/c
 %doc COPYING
 
 %changelog
+* Mon May 31 2021 baizhonggui <baizhonggui@huawei.com> - 2.0-16
+- Add gcc in BuildRequires
+
 * Sat Nov 23 2019 fengbing <fengbing7@huawei.com> - 2.0-15
 - Package init
