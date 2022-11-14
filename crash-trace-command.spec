@@ -1,10 +1,10 @@
 Name:          crash-trace-command
 Version:       3.0
-Release:       1
+Release:       2
 Summary:       Crash utility's trace extension module
 License:       GPLv2
-Source:        crash-trace-command-%{version}.tar.gz
-URL:           http://people.redhat.com/anderson/extensions/crash-trace-command-%{version}.tar.gz
+Source:        https://github.com/fujitsu/crash-trace/archive/v%{version}/%{name}-%{version}.tar.gz
+URL:           https://github.com/fujitsu/crash-trace/
 Buildroot:     %{_tmppath}/crash-trace-command-root
 BuildRequires: zlib-devel lzo-devel snappy-devel crash-devel >= 7.3.0-2 gcc
 Requires:      trace-cmd crash >= 7.3.0-2
@@ -32,6 +32,9 @@ cp %{_builddir}/crash-trace-%{version}/trace.so %{buildroot}%{_libdir}/crash/ext
 %doc COPYING
 
 %changelog
+* Mon Nov 14 2022 yaoxin <yaoxin30@h-partners.com> - 3.0-2
+- Modify invalid Source and URL
+
 * Tue Jan 18 2022 SimpleUpdate Robot <tc@openeuler.org> - 3.0-1
 - Upgrade to version 3.0
 
