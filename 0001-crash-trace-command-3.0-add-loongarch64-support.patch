@@ -1,0 +1,26 @@
+From 9f358a85cc562d0d992bdc79095f9ad0ecc644dd Mon Sep 17 00:00:00 2001
+From: Huang Yang <huangyang@loongson.cn>
+Date: Mon, 16 May 2022 09:02:35 +0000
+Subject: [PATCH] crash-trace-command 3.0 add loongarch64 support
+
+---
+ Makefile | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/Makefile b/Makefile
+index 0d35d4f..5bb4aca 100755
+--- a/Makefile
++++ b/Makefile
+@@ -30,6 +30,10 @@ ifeq ($(shell arch), aarch64)
+   TARGET=ARM64
+   TARGET_CFLAGS=
+ endif
++ifeq ($(shell arch), loongarch64)
++  TARGET=LOONGARCH64
++  TARGET_CFLAGS=
++endif
+ 
+ INCDIR=/usr/include/crash
+ 
+-- 
+2.33.0
