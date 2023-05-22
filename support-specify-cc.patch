@@ -1,0 +1,9 @@
+diff -up  a/Makefile  b/Makefile
+---  a/Makefile	2023-05-22 12:44:17.685065249 +0800
++++  b/Makefile	2023-05-22 12:44:41.711191461 +0800
+@@ -36,4 +36,4 @@ INCDIR=/usr/include/crash
+ all: trace.so
+ 	
+ trace.so: $(INCDIR)/defs.h trace.c 
+-	gcc $(RPM_OPT_FLAGS) -Wall -I$(INCDIR) -nostartfiles -shared -rdynamic -Wl,-soname,trace.so -o trace.so trace.c -fPIC -D$(TARGET) $(TARGET_CFLAGS)
++	$(CC) $(RPM_OPT_FLAGS) -Wall -I$(INCDIR) -nostartfiles -shared -rdynamic -Wl,-soname,trace.so -o trace.so trace.c -fPIC -D$(TARGET) $(TARGET_CFLAGS)

@@ -1,6 +1,6 @@
 Name:          crash-trace-command
 Version:       3.0
-Release:       2
+Release:       3
 Summary:       Crash utility's trace extension module
 License:       GPLv2
 Source:        crash-trace-command-%{version}.tar.gz
@@ -11,7 +11,8 @@ Requires:      trace-cmd crash >= 7.3.0-2
 
 Patch0001:     0001-Makefile-set-DT_SONAME-to-trace.so.patch
 Patch0002:     0002-Makefile-fix-build-failure-on-aarch64-and-ppc64le.patch
-Patch0003:	0001-crash-trace-command-3.0-add-loongarch64-support.patch
+Patch0003:     0001-crash-trace-command-3.0-add-loongarch64-support.patch
+Patch0004:     support-specify-cc.patch
 
 %description
 This package provides a trace extension module for the crash utility,
@@ -24,6 +25,7 @@ allowing it to read ftrace data from a core dump file.
 %ifarch loongarch64
 %patch0003 -p1
 %endif
+%patch0004 -p1
 
 %build
 make
@@ -38,6 +40,9 @@ cp %{_builddir}/crash-trace-%{version}/trace.so %{buildroot}%{_libdir}/crash/ext
 %doc COPYING
 
 %changelog
+* Mon May 22 2023 jammyjellyfish <jammyjellyfish255@outlook.com> - 3.0-3
+- Support specify CC
+
 * Mon Nov 14 2022 Wenlong Zhang <zhangwenlong@loongson.cn> - 3.0-2
 - add loongarch support for crash-trace-command
 
