@@ -1,0 +1,14 @@
+diff -u -r crash-trace-3.0/Makefile crash-trace-3.0/Makefile
+--- crash-trace-3.0/Makefile	2023-07-19 16:37:38.000000000 +0800
++++ crash-trace-3.0/Makefile	2023-07-19 16:39:01.000000000 +0800
+@@ -30,6 +30,10 @@
+   TARGET=ARM64
+   TARGET_CFLAGS=
+ endif
++ifeq ($(shell arch), riscv64)
++  TARGET=RISCV64
++  TARGET_CFLAGS=
++endif
+ 
+ INCDIR=/usr/include/crash
+ 
